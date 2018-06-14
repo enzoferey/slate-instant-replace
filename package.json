@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "immutable": "^3.8.2",
+    "is-url": "^1.2.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-emoji-render": "^0.4.4",
     "react-scripts": "1.1.4",
     "slate": "^0.33.7",
     "slate-react": "^0.12.7"
