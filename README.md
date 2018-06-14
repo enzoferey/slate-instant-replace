@@ -47,7 +47,7 @@ Option | Type | Description
 
 ### Example
 
-Emoji auto replacement
+- Emoji auto replacement
 
 ![Gif Emoji demo](./gifs/emojis.gif "Gif Emoji demo")
 
@@ -124,7 +124,7 @@ class Slate extends React.Component {
 export default Slate;
 ```
 
-URL inline-node auto insert
+- URL inline-node auto insert
 
 ![Gif URL demo](./gifs/URLs.gif "Gif URL demo")
 
