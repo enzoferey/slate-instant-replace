@@ -1,5 +1,7 @@
 import { Inline } from "slate";
 
+const isLetter = event => event.key.length === 1;
+
 const isCtrlOrCmd = event => event.ctrlKey || event.metaKey;
 
 const isSpace = event => event.key === " ";
@@ -32,8 +34,7 @@ const getPreviousNode = change => {
 	return block.getPreviousSibling(activeKey);
 };
 
-
-const focusPreviousNode = (change) => {
+const focusPreviousNode = change => {
 	const offsetCurrentWord = change.value.focusOffset;
 	// check if we just started a the node
 	if (offsetCurrentWord === 0) {
@@ -42,11 +43,11 @@ const focusPreviousNode = (change) => {
 			change.extendToEndOf(previousNode).focus();
 		}
 	}
-}
+};
 
 const InstantReplace = transforms => ({
 	onKeyDown(event, change) {
-		if (event.key.length > 1) return;
+		if (!isLetter(event)) return;
 
 		// needed to handle space & control + key actions by default
 		if (!isCtrlOrCmd(event)) {
@@ -58,7 +59,9 @@ const InstantReplace = transforms => ({
 			const lastWord = getLastWord(change, offsetCurrentWord);
 
 			// Apply transforms
-			transforms.forEach(transform => transform(change, lastWord));
+			if (Array.isArray(transforms))
+				transforms.forEach(transform => transform(change, lastWord));
+			else transforms(change, lastWord);
 
 			event.preventDefault();
 		}

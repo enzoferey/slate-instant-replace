@@ -1,5 +1,5 @@
 {
-  "name": "slate-instant-replace",
+  "name": "slate-instant-replace-container",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,13 +9,21 @@
     "react-dom": "^16.4.1",
     "react-emoji-render": "^0.4.4",
     "react-scripts": "1.1.4",
-    "slate": "^0.33.7",
+    "slate-instant-replace": "^0.1.1",
     "slate-react": "^0.12.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "babel": "babel ./src/instant-replace-plugin.js -o ./dist/instant-replace-plugin.js",
+    "browserify": "browserify ./dist/instant-replace-plugin.js -o ./dist/instant-replace-plugin.js",
+    "prepublish": "npm run babel && npm run browserify"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "browserify": "^16.2.2"
   }
 }
