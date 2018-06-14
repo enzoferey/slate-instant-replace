@@ -1,6 +1,6 @@
 {
   "name": "slate-instant-replace",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "A Slate plugin to automatically replace text automatically when the user types certain strings.",
   "main": "instant-replace-plugin.js",
   "dependencies": {

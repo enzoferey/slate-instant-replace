@@ -47,8 +47,9 @@ Option | Type | Description
 
 ### Example
 
-Emoji auto replacement
-![alt text](https://github.com/enzoferey/slate-instant-replace/blob/master/gifs/emojis.gif "Gif Emoji demo")
+- Emoji auto replacement
+
+![Gif Emoji demo](./gifs/emojis.gif "Gif Emoji demo")
 
 ```jsx
 import React from "react";
@@ -123,7 +124,8 @@ class Slate extends React.Component {
 export default Slate;
 ```
 
-URL inline-node auto insert
-![alt text](https://github.com/enzoferey/slate-instant-replace/blob/master/gifs/URLs.gif "Gif URL demo")
+- URL inline-node auto insert
+
+![Gif URL demo](./gifs/URLs.gif "Gif URL demo")
 
 Source can be found [here](https://github.com/enzoferey/slate-instant-replace/blob/master/src/Slate.js).
