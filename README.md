@@ -49,7 +49,7 @@ Option | Type | Description
 
 - Emoji auto replacement
 
-![Gif Emoji demo](./gifs/emojis.gif "Gif Emoji demo")
+![Gif Emoji demo](./examples/emojis-example/demo.gif "Gif Emoji demo")
 
 ```jsx
 import React from "react";
@@ -126,6 +126,6 @@ export default Slate;
 
 - URL inline-node auto insert
 
-![Gif URL demo](./gifs/URLs.gif "Gif URL demo")
+![Gif URL demo](./examples/urls-example/demo.gif "Gif URL demo")
 
 Source can be found [here](https://github.com/enzoferey/slate-instant-replace/blob/master/src/Slate.js).

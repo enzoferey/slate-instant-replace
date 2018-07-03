@@ -22,3 +22,18 @@ yarn-error.log*
 
 *.sublime-workspace
 *.sublime-project
+
+dist
+
+# Examples
+examples/emojis-example/node_modules
+examples/emojis-example/public
+examples/emojis-example/src/*
+examples/emojis-example/package*
+!examples/emojis-example/src/Slate.js
+
+examples/urls-example/node_modules
+examples/urls-example/public
+examples/urls-example/src/*
+examples/urls-example/package*
+!examples/urls-example/src/Slate.js

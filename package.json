@@ -1,29 +1,24 @@
 {
-  "name": "slate-instant-replace-container",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "name": "slate-instant-replace",
+  "version": "0.1.6",
+  "description":
+    "A Slate plugin to automatically replace text automatically when the user types certain strings.",
+  "repository": "git://github.com/enzoferey/slate-instant-replace.git",
+  "main": "./dist/index.js",
+  "files": ["dist", "*.md"],
+  "author": "Enzo Ferey",
+  "license": "MIT",
+  "peerDependencies": {
     "immutable": "^3.8.2",
-    "is-url": "^1.2.4",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-emoji-render": "^0.4.4",
-    "react-scripts": "1.1.4",
-    "slate-instant-replace": "^0.1.1",
-    "slate-react": "^0.12.7"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "babel": "babel ./src/instant-replace-plugin.js -o ./dist/instant-replace-plugin.js",
-    "browserify": "browserify ./dist/instant-replace-plugin.js -o ./dist/instant-replace-plugin.js",
-    "prepublish": "npm run babel && npm run browserify"
+    "slate": "^0.33.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "browserify": "^16.2.2"
-  }
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "babel": "babel ./lib/index.js -o ./dist/index.js",
+    "prepublish": "npm run babel"
+  },
+  "keywords": ["slate", "autocomplete", "replace", "editor"]
 }
