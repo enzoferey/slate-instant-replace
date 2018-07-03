@@ -18,7 +18,7 @@
   },
   "scripts": {
     "babel": "babel ./lib/index.js -o ./dist/index.js",
-    "prepublish": "npm run babel"
+    "prepublishOnly": "npm run babel"
   },
   "keywords": ["slate", "autocomplete", "replace", "editor"]
 }
