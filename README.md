@@ -51,20 +51,14 @@ Option | Type | Description
 
 ## Examples
 
-- Emoji auto replacement
+- Emoji auto replacement ([check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/emojis-example/src/Slate.js))
 
 ![Gif Emoji demo](./examples/emojis-example/demo.gif "Gif Emoji demo")
 
-[Check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/emojis-example/src/Slate.js).
-
-- URL inline-node auto insert
+- URL inline-node auto insert ([check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/urls-example/src/Slate.js))
 
 ![Gif URL demo](./examples/urls-example/demo.gif "Gif URL demo")
 
-[Check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/urls-example/src/Slate.js).
-
-- Multiples transforms (hello => hi + emoji auto replacement)
+- Multiples transforms (hello => hi + emoji auto replacement) ([check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/multiple-transforms-example/src/Slate.js))
 
 ![Gif multiple transforms demo](./examples/multiple-transforms-example/demo.gif "Gif multiple transforms demo")
-
-[Check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/multiple-transforms-example/src/Slate.js).
