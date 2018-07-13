@@ -1,24 +1,41 @@
 {
   "name": "slate-instant-replace",
   "version": "0.1.6",
-  "description":
-    "A Slate plugin to automatically replace text automatically when the user types certain strings.",
+  "description": "A Slate plugin to automatically replace text automatically when the user types certain strings.",
   "repository": "git://github.com/enzoferey/slate-instant-replace.git",
   "main": "./dist/index.js",
-  "files": ["dist", "*.md"],
+  "files": [
+    "dist",
+    "*.md"
+  ],
   "author": "Enzo Ferey",
   "license": "MIT",
   "peerDependencies": {
     "immutable": "^3.8.2",
-    "slate": "^0.33.7"
+    "slate": "^0.34.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "immutable": "^3.8.2",
+    "mocha": "^5.2.0",
+    "slate": "^0.34.2",
+    "slate-plain-serializer": "^0.5.17",
+    "slate-simulator": "^0.4.34"
   },
   "scripts": {
     "babel": "babel ./lib/index.js -o ./dist/index.js",
-    "prepublishOnly": "npm run babel"
+    "prepublishOnly": "npm run babel",
+    "test": "mocha --require babel-core/register",
+    "test:watch": "mocha --watch --require babel-core/register"
   },
-  "keywords": ["slate", "autocomplete", "replace", "editor"]
+  "keywords": [
+    "slate",
+    "autocomplete",
+    "replace",
+    "editor"
+  ],
+  "dependencies": {}
 }

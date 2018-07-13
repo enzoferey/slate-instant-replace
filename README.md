@@ -62,3 +62,9 @@ Option | Type | Description
 ![Gif URL demo](./examples/urls-example/demo.gif "Gif URL demo")
 
 [Check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/urls-example/src/Slate.js).
+
+- Multiples transforms (hello => hi + emoji auto replacement)
+
+![Gif multiple transforms demo](./examples/multiple-transforms-example/demo.gif "Gif multiple transforms demo")
+
+[Check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/multiple-transforms-example/src/Slate.js).

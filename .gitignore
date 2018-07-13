@@ -37,3 +37,9 @@ examples/urls-example/public
 examples/urls-example/src/*
 examples/urls-example/package*
 !examples/urls-example/src/Slate.js
+
+examples/multiple-transforms-example/node_modules
+examples/multiple-transforms-example/public
+examples/multiple-transforms-example/src/*
+examples/multiple-transforms-example/package*
+!examples/multiple-transforms-example/src/Slate.js
