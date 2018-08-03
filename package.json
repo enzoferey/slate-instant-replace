@@ -11,8 +11,7 @@
   "author": "Enzo Ferey",
   "license": "MIT",
   "peerDependencies": {
-    "immutable": "^3.8.2",
-    "slate": "^0.34.2"
+    "slate": "^0.36.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -21,7 +20,7 @@
     "chai": "^4.1.2",
     "immutable": "^3.8.2",
     "mocha": "^5.2.0",
-    "slate": "^0.34.2",
+    "slate": "^0.36.2",
     "slate-plain-serializer": "^0.5.17",
     "slate-simulator": "^0.4.34"
   },
@@ -29,7 +28,8 @@
     "babel": "babel ./lib/index.js -o ./dist/index.js",
     "prepublishOnly": "npm run babel",
     "test": "mocha --require babel-core/register",
-    "test:watch": "mocha --watch --require babel-core/register"
+    "test:watch": "mocha --watch --require babel-core/register",
+    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./lib/**/*.@(js|scss)\""
   },
   "keywords": [
     "slate",

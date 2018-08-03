@@ -1,4 +1,7 @@
-# slate-instant-replace [![Build Status](https://travis-ci.org/enzoferey/slate-instant-replace.svg?branch=master)](https://travis-ci.org/enzoferey/slate-instant-replace)
+# slate-instant-replace
+
+[![Build Status](https://travis-ci.org/enzoferey/slate-instant-replace.svg?branch=master)](https://travis-ci.org/enzoferey/slate-instant-replace)
+
 A Slate plugin to automatically replace text automatically when the user types certain strings.
 
 #### Why ?
@@ -45,9 +48,9 @@ const plugins = [InstantReplace([YourFunction1, YourFunction2, YourFunction3])];
 
 ## Options
 
-Option | Type | Description
---- | --- | ---
-**`transform`** | `Function` `ArrayOf(Function)` | The transforms to apply to the `change` object each time a letter is pressed. If an array is passed, the functions will be applied from the first element of the array to the last.
+| Option          | Type                           | Description                                                                                                                                                                         |
+| --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`transform`** | `Function` `ArrayOf(Function)` | The transforms to apply to the `change` object each time a letter is pressed. If an array is passed, the functions will be applied from the first element of the array to the last. |
 
 ## Examples
 
