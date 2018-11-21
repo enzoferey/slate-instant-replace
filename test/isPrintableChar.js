@@ -1,4 +1,4 @@
-import { isPrintableChar } from "../lib";
+import { isPrintableChar } from "../lib/keyHelpers";
 
 describe("isPrintableChar(event: { key })", () => {
   describe("when the function is called", () => {

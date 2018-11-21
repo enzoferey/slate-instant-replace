@@ -1,4 +1,4 @@
-import { isCtrlOrCmd } from "../lib";
+import { isCtrlOrCmd } from "../lib/keyHelpers";
 
 describe("isCtrlOrCmd(event: { ctrlKey, metaKey })", () => {
   describe("when the function is called", () => {
