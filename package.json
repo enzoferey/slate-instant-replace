@@ -3,7 +3,7 @@
   "version": "0.1.9",
   "description": "A Slate plugin that gives you full power on the last word your user typed.",
   "repository": "git://github.com/enzoferey/slate-instant-replace.git",
-  "main": "./dist/index.js",
+  "main": "./dist/slate-instant-replace.js",
   "files": [
     "dist",
     "*.md"
@@ -22,11 +22,13 @@
     "mocha": "^5.2.0",
     "prettier": "^1.15.2",
     "slate": "^0.44.6",
-    "slate-plain-serializer": "^0.6.30"
+    "slate-plain-serializer": "^0.6.30",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "babel": "babel ./lib/index.js -o ./dist/index.js",
-    "prepublishOnly": "npm run prettier && npm run babel",
+    "build": "webpack --config webpack.config.js",
+    "prepublishOnly": "npm run prettier && npm run build",
     "test": "mocha --require babel-core/register",
     "test:watch": "mocha --watch --require babel-core/register",
     "prettier": "prettier --config \"./.prettierrc.js\" --write \"./lib/**/*.@(js|scss)\""
