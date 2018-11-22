@@ -2,18 +2,18 @@ import React from "react";
 import { Editor } from "slate-react";
 import Plain from "slate-plain-serializer";
 
-import InstantReplace from "./lib";
+import InstantReplace from "slate-instant-replace";
 
 import isUrl from "is-url";
 
 // Transformation function
-const AddURL = (change, lastWord) => {
+const AddURL = (editor, lastWord) => {
   if (isUrl(lastWord)) {
-    change.extend(-lastWord.length); // select last word
-    change.unwrapInline("link"); // remove existing urls
+    editor.moveFocusBackward(lastWord.length); // select last word
+    editor.unwrapInline("link"); // remove existing urls
     const href = lastWord.startsWith("http") ? lastWord : `https://${lastWord}`;
-    change.wrapInline({ type: "link", data: { href } }); // set URL inline
-    change.extend(lastWord.length); // deselect it
+    editor.wrapInline({ type: "link", data: { href } }); // set URL inline
+    editor.moveFocusForward(lastWord.length); // deselect it
   }
 };
 

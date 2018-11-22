@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/enzoferey/slate-instant-replace.svg?branch=master)](https://travis-ci.org/enzoferey/slate-instant-replace)
 
-A Slate plugin to automatically replace text automatically when the user types certain strings.
+A Slate plugin that gives you full power on the last word your user typed.
 
 #### Why ?
 
@@ -10,7 +10,7 @@ I was looking at some plugin to automatically replace some text at the very same
 
 #### How ?
 
-This plugin applies your transformations everytime you write a new letter and has no opinion on the changes you make to the SlateJS's `change` object. It gives you the change object and the last word and the rest is up to you !
+This plugin applies your transformations every time you write a new letter and has no opinion on the changes you make to the SlateJS's `editor` instance. Your transformation functions will receive as arguments the editor instance and the last word write and the rest is up to you !
 
 ## Install
 
@@ -24,7 +24,7 @@ npm install --save slate-instant-replace
 import InstantReplace from "slate-instant-replace";
 import { Editor } from "slate-react";
 
-const YourFunction = (change, lastWord) => {
+const YourFunction = (editor, lastWord) => {
   ...
 }
 
@@ -51,6 +51,19 @@ const plugins = [InstantReplace([YourFunction1, YourFunction2, YourFunction3])];
 | Option          | Type                           | Description                                                                                                                                                                         |
 | --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`transform`** | `Function` `ArrayOf(Function)` | The transforms to apply to the `change` object each time a letter is pressed. If an array is passed, the functions will be applied from the first element of the array to the last. |
+
+## Commands and queries
+
+Additionally this plugins exposes the follow [commands and queries](https://docs.slatejs.org/guides/commands-and-queries) if you want to reuse them for your other plugins:
+
+| Name                    | Type      | Description                                                                       |
+| ----------------------- | --------- | --------------------------------------------------------------------------------- |
+| getSelection            | `query`   | Returns the current selection.                                                    |
+| getCurrentWordOffset    | `query`   | Returns the offset of the current word in the node.                               |
+| getLastWord             | `query`   | Returns the last word using as a reference the current anchor position.           |
+| getPreviousNode         | `query`   | Returns the previous node to the one currently focused.                           |
+| isFirstCharOfNode       | `query`   | Returns true if the anchor is at position 0 of the current node.                  |
+| focusPreviousInlineNode | `command` | Focuses the previous [`Inline`](https://docs.slatejs.org/slate-core/inline) node. |
 
 ## Examples
 

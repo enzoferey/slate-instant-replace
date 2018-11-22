@@ -2,10 +2,11 @@ import React from "react";
 import { Editor } from "slate-react";
 import Plain from "slate-plain-serializer";
 
-import InstantReplace from "./lib";
+import InstantReplace from "slate-instant-replace";
 
 import { toArray } from "react-emoji-render";
 
+// Check out react-emoji-render, pretty cool library !
 const parseEmojis = value => {
   const emojisArray = toArray(value);
   const newValue = emojisArray.reduce((previous, current) => {
@@ -16,16 +17,16 @@ const parseEmojis = value => {
 };
 
 // Transformation function
-const AddEmojis = (change, lastWord) => {
-  change.extend(-lastWord.length); // select last word
-  change.insertText(parseEmojis(lastWord)); // replace it
+const AddEmojis = (editor, lastWord) => {
+  editor.moveFocusBackward(lastWord.length); // select last word
+  editor.insertText(parseEmojis(lastWord)); // replace it
 };
 
 // Transformation function 2
-const CustomTransform = (change, lastWord) => {
+const CustomTransform = (editor, lastWord) => {
   if (lastWord === "hello") {
-    change.extend(-lastWord.length); // select last word
-    change.insertText("hi"); // replace it
+    editor.moveFocusBackward(lastWord.length); // select last word
+    editor.insertText("hi"); // replace it
   }
 };
 
