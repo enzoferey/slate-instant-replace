@@ -65,6 +65,13 @@ Additionally this plugins exposes the follow [commands and queries](https://docs
 | isFirstCharOfNode       | `query`   | Returns true if the anchor is at position 0 of the current node.                  |
 | focusPreviousInlineNode | `command` | Focuses the previous [`Inline`](https://docs.slatejs.org/slate-core/inline) node. |
 
+Commands and queries get automatically attached to the `editor` instance. This means you can use them like this:
+
+```js
+editor.getSelection();
+editor.focusPreviousInlineNode();
+```
+
 ## Examples
 
 - Emoji auto replacement ([check source code](https://github.com/enzoferey/slate-instant-replace/blob/master/examples/emojis-example/src/Slate.js))
