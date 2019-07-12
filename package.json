@@ -1,6 +1,6 @@
 {
   "name": "slate-instant-replace",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A Slate plugin that gives you full power on the last word your user typed.",
   "repository": "git://github.com/enzoferey/slate-instant-replace.git",
   "main": "./dist/slate-instant-replace.js",
