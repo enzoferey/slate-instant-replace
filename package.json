@@ -10,6 +10,22 @@
   ],
   "author": "Enzo Ferey",
   "license": "MIT",
+  "keywords": [
+    "slate",
+    "autocomplete",
+    "replace",
+    "editor",
+    "last",
+    "word"
+  ],
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "prepublishOnly": "npm run prettier && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./lib/**/*.@(js|scss)\""
+  },
+  "dependencies": {},
   "peerDependencies": {
     "slate": "^0.44.6"
   },
@@ -24,21 +40,5 @@
     "slate-plain-serializer": "^0.6.30",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "prepublishOnly": "npm run prettier && npm run build",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./lib/**/*.@(js|scss)\""
-  },
-  "keywords": [
-    "slate",
-    "autocomplete",
-    "replace",
-    "editor",
-    "last",
-    "word"
-  ],
-  "dependencies": {}
+  }
 }
