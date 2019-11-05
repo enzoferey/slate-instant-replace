@@ -10,30 +10,6 @@
   ],
   "author": "Enzo Ferey",
   "license": "MIT",
-  "peerDependencies": {
-    "slate": "^0.44.6"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
-    "immutable": "^3.8.2",
-    "mocha": "^5.2.0",
-    "prettier": "^1.15.2",
-    "sinon": "^7.5.0",
-    "slate": "^0.44.6",
-    "slate-plain-serializer": "^0.6.30",
-    "webpack": "^4.26.0",
-    "webpack-cli": "^3.1.2"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "prepublishOnly": "npm run prettier && npm run build",
-    "test": "mocha --require babel-core/register",
-    "test:watch": "mocha --watch --require babel-core/register",
-    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./lib/**/*.@(js|scss)\""
-  },
   "keywords": [
     "slate",
     "autocomplete",
@@ -42,5 +18,27 @@
     "last",
     "word"
   ],
-  "dependencies": {}
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "prepublishOnly": "npm run prettier && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prettier": "prettier --config \"./.prettierrc.js\" --write \"**/*.@(js|scss)\""
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "slate": "^0.44.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "immutable": "^3.8.2",
+    "jest": "^24.9.0",
+    "prettier": "1.18.2",
+    "slate": "^0.44.6",
+    "slate-plain-serializer": "^0.6.30",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
 }
