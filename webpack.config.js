@@ -1,12 +1,13 @@
 var path = require("path");
 
 module.exports = {
+  mode: "production",
   entry: "./lib/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "slate-instant-replace.js",
-    library: 'slateInstantReplace',
-    libraryTarget: 'umd'
+    library: "slateInstantReplace",
+    libraryTarget: "umd",
   },
   externals: {
     slate: {
