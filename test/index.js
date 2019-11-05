@@ -3,6 +3,13 @@ import Plain from "slate-plain-serializer";
 
 import AutoReplacePlugin from "../lib";
 
+const KeyDownInsertTextPlugin = textToInsert => ({
+  onKeyDown(event, editor, next) {
+    editor.insertText(textToInsert);
+    return next();
+  },
+});
+
 const Transform1 = (editor, lastWord) => {
   if (lastWord === "hi") {
     editor.moveFocusBackward(lastWord.length); // select last word
@@ -25,6 +32,16 @@ const Transform3 = (editor, lastWord) => {
 
 const initialValue = Plain.deserialize("");
 const keyEvent = key => ({ key, preventDefault: () => null });
+const ctrlKeyEvent = () => ({
+  key: "1",
+  ctrlKey: true,
+  preventDefault: () => null,
+});
+const cmdKeyEvent = () => ({
+  key: "2",
+  metaKey: true,
+  preventDefault: () => null,
+});
 
 describe("AutoReplacePlugin()", () => {
   // Apply one transform (hi => hello)
@@ -34,8 +51,8 @@ describe("AutoReplacePlugin()", () => {
       const plugins = [AutoReplacePlugin(Transform1)];
       const simulator = new Editor({ value, plugins });
 
-      simulator.run('onKeyDown', keyEvent("h"));
-      simulator.run('onKeyDown', keyEvent("i"));
+      simulator.run("onKeyDown", keyEvent("h"));
+      simulator.run("onKeyDown", keyEvent("i"));
 
       expect(simulator.value.focusText.text).to.equal("hello");
     });
@@ -48,9 +65,9 @@ describe("AutoReplacePlugin()", () => {
       const plugins = [AutoReplacePlugin([Transform2])];
       const simulator = new Editor({ value, plugins });
 
-      simulator.run('onKeyDown', keyEvent("b"));
-      simulator.run('onKeyDown', keyEvent("y"));
-      simulator.run('onKeyDown', keyEvent("e"));
+      simulator.run("onKeyDown", keyEvent("b"));
+      simulator.run("onKeyDown", keyEvent("y"));
+      simulator.run("onKeyDown", keyEvent("e"));
 
       expect(simulator.value.focusText.text).to.equal("goodbye");
     });
@@ -63,13 +80,14 @@ describe("AutoReplacePlugin()", () => {
       const plugins = [AutoReplacePlugin([Transform1, Transform3])];
       const simulator = new Editor({ value, plugins });
 
-      simulator.run('onKeyDown', keyEvent("h"));
-      simulator.run('onKeyDown', keyEvent("i"));
+      simulator.run("onKeyDown", keyEvent("h"));
+      simulator.run("onKeyDown", keyEvent("i"));
 
       expect(simulator.value.focusText.text).to.equal("hello!");
     });
   });
 
+  // Not related specifically to this plugin, but ensures it works as we depend on it for our `focusPreviousInlineNode` usage
   describe("when writing a non space character and the last block is an inline", () => {
     it("should append the new character to the inline", () => {
       const value = initialValue;
@@ -77,8 +95,8 @@ describe("AutoReplacePlugin()", () => {
       let simulator = new Editor({ value, plugins });
 
       // Write some text
-      simulator.run('onKeyDown', keyEvent("h"));
-      simulator.run('onKeyDown', keyEvent("i"));
+      simulator.run("onKeyDown", keyEvent("h"));
+      simulator.run("onKeyDown", keyEvent("i"));
 
       // Insert inline
       simulator
@@ -87,9 +105,57 @@ describe("AutoReplacePlugin()", () => {
         .moveFocusForward(2);
 
       // Write another character
-      simulator.run('onKeyDown', keyEvent("!"));
+      simulator.run("onKeyDown", keyEvent("!"));
 
       expect(simulator.value.inlines.get(0).text).to.equal("hi!");
+    });
+  });
+
+  describe("when writing a non printable character", () => {
+    it("should ignore the event", () => {
+      const value = initialValue;
+      const fakeTransform = fake();
+      const plugins = [AutoReplacePlugin(fakeTransform)];
+      let simulator = new Editor({ value, plugins });
+
+      // Press enter
+      simulator.run("onKeyDown", keyEvent("Enter"));
+
+      expect(fakeTransform.callCount).to.equal(0);
+    });
+  });
+
+  describe("when writing ctrl or cmd character", () => {
+    it("should ignore the event", () => {
+      const value = initialValue;
+      const fakeTransform = fake();
+      const plugins = [AutoReplacePlugin(fakeTransform)];
+      let simulator = new Editor({ value, plugins });
+
+      // Press ctrl
+      simulator.run("onKeyDown", ctrlKeyEvent());
+
+      // Press cmd
+      simulator.run("onKeyDown", cmdKeyEvent());
+
+      expect(fakeTransform.callCount).to.equal(0);
+    });
+  });
+
+  describe("when the `onKeyDown` hook is finished", () => {
+    it("should propagate the event to other plugins in the stack", () => {
+      const value = initialValue;
+      const textToInsert = "a";
+      const plugins = [
+        AutoReplacePlugin(),
+        KeyDownInsertTextPlugin(textToInsert),
+      ];
+      let simulator = new Editor({ value, plugins });
+
+      // Write some text
+      simulator.run("onKeyDown", keyEvent("h"));
+
+      expect(simulator.value.focusText.text).to.equal("h" + textToInsert);
     });
   });
 });
