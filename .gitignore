@@ -23,7 +23,11 @@ yarn-error.log*
 *.sublime-workspace
 *.sublime-project
 
+# build
 dist
+
+# IDEs
+.vscode
 
 # Examples
 examples/emojis-example/node_modules
