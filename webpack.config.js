@@ -1,6 +1,7 @@
 var path = require("path");
 
 module.exports = {
+  target: "node",
   mode: "production",
   entry: "./lib/index.js",
   output: {
@@ -8,6 +9,7 @@ module.exports = {
     filename: "slate-instant-replace.js",
     library: "slateInstantReplace",
     libraryTarget: "umd",
+    umdNamedDefine: true,
   },
   externals: {
     slate: {
