@@ -4,6 +4,8 @@
 
 A Slate plugin that gives you full power on the last word your user typed.
 
+⚠️ This package is compatible with `<= slate@0.47`, please open an issue if you are working on `>= slate@0.50` ⚠️
+
 #### Why ?
 
 I was looking at some plugin to automatically replace some text at the very same moment that you press the key that completes the word you want to replace. There is already a SlateJS [auto replace plugin](https://github.com/ianstormtaylor/slate-plugins/tree/master/packages/slate-auto-replace), however you need to specify a key to trigger the replacement and this key cannot be a part of the replaced text.
@@ -16,6 +18,7 @@ This plugin applies your transformations every time you write a new letter and h
 
 ```sh
 npm install --save slate-instant-replace
+yarn add slate-instant-replace
 ```
 
 ## Usage
@@ -54,7 +57,7 @@ const plugins = [InstantReplace([YourFunction1, YourFunction2, YourFunction3])];
 
 ## Commands and queries
 
-Additionally this plugins exposes the follow [commands and queries](https://docs.slatejs.org/guides/commands-and-queries) if you want to reuse them for your other plugins:
+Additionally this plugins exposes the follow [commands and queries](https://docs.slatejs.org/v/v0.47/guides/commands-and-queries) if you want to reuse them for your other plugins:
 
 | Name                    | Type      | Description                                                                       |
 | ----------------------- | --------- | --------------------------------------------------------------------------------- |
@@ -63,7 +66,7 @@ Additionally this plugins exposes the follow [commands and queries](https://docs
 | getLastWord             | `query`   | Returns the last word using as a reference the current anchor position.           |
 | getPreviousNode         | `query`   | Returns the previous node to the one currently focused.                           |
 | isFirstCharOfNode       | `query`   | Returns true if the anchor is at position 0 of the current node.                  |
-| focusPreviousInlineNode | `command` | Focuses the previous [`Inline`](https://docs.slatejs.org/slate-core/inline) node. |
+| focusPreviousInlineNode | `command` | Focuses the previous [`Inline`](https://docs.slatejs.org/v/v0.47/slate-core/inline) node. |
 
 Commands and queries get automatically attached to the `editor` instance. This means you can use them like this:
 
