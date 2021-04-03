@@ -4,7 +4,7 @@
 
 A Slate plugin that gives you full power on the last word your user typed.
 
-⚠️ This package is compatible with `<= slate@0.47`, please open an issue if you are working on `>= slate@0.50` ⚠️
+⚠️ This package is compatible with `<= slate@0.47`, please refer to [this issue](https://github.com/enzoferey/slate-instant-replace/issues/14) if you are working on `>= slate@0.50` ⚠️
 
 #### Why ?
 
