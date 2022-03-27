@@ -23,7 +23,8 @@
     "prepublishOnly": "npm run prettier && npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prettier": "prettier --config \"./.prettierrc.js\" --write \"**/*.@(js|scss)\""
+    "prettier": "prettier --config \"./.prettierrc.js\" --write \"**/*.@(js|scss)\"",
+    "prettier:check": "prettier --check \"./.prettierrc.js\" --write \"**/*.@(js|scss)\""
   },
   "dependencies": {},
   "peerDependencies": {

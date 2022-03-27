@@ -1,6 +1,6 @@
 # slate-instant-replace
 
-[![Build Status](https://travis-ci.org/enzoferey/slate-instant-replace.svg?branch=master)](https://travis-ci.org/enzoferey/slate-instant-replace)
+![Test CI](https://github.com/enzoferey/slate-instant-replace/actions/workflows/test.yml/badge.svg)
 
 A Slate plugin that gives you full power on the last word your user typed.
 
@@ -59,13 +59,13 @@ const plugins = [InstantReplace([YourFunction1, YourFunction2, YourFunction3])];
 
 Additionally this plugins exposes the follow [commands and queries](https://docs.slatejs.org/v/v0.47/guides/commands-and-queries) if you want to reuse them for your other plugins:
 
-| Name                    | Type      | Description                                                                       |
-| ----------------------- | --------- | --------------------------------------------------------------------------------- |
-| getSelection            | `query`   | Returns the current selection.                                                    |
-| getCurrentWordOffset    | `query`   | Returns the offset of the current word in the node.                               |
-| getLastWord             | `query`   | Returns the last word using as a reference the current anchor position.           |
-| getPreviousNode         | `query`   | Returns the previous node to the one currently focused.                           |
-| isFirstCharOfNode       | `query`   | Returns true if the anchor is at position 0 of the current node.                  |
+| Name                    | Type      | Description                                                                               |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| getSelection            | `query`   | Returns the current selection.                                                            |
+| getCurrentWordOffset    | `query`   | Returns the offset of the current word in the node.                                       |
+| getLastWord             | `query`   | Returns the last word using as a reference the current anchor position.                   |
+| getPreviousNode         | `query`   | Returns the previous node to the one currently focused.                                   |
+| isFirstCharOfNode       | `query`   | Returns true if the anchor is at position 0 of the current node.                          |
 | focusPreviousInlineNode | `command` | Focuses the previous [`Inline`](https://docs.slatejs.org/v/v0.47/slate-core/inline) node. |
 
 Commands and queries get automatically attached to the `editor` instance. This means you can use them like this:
